@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>阿辉博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="阿辉博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="阿辉博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="李冰辉">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="阿辉博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">阿辉博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-06-浮动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/06-%E6%B5%AE%E5%8A%A8/" class="article-date">
+  <time datetime="2023-03-06T09:00:23.884Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><ol>
+<li>属性</li>
+</ol>
+<p>float：left左浮动</p>
+<p>float：right右浮动</p>
+<p><em>同级元素一个浮动，其他都要浮动，所有的标签都可添加浮动属性</em></p>
+<ol start="2">
+<li>特点：</li>
+</ol>
+<ul>
+<li>浮动元素会排成一排</li>
+<li>没有设置宽度的块元素添加浮动之后会自动伸缩为内容的宽度</li>
+<li>浮动元素会找紧挨着他的浮动元素贴边</li>
+<li>行内元素添加浮动属性之后可以设置宽高</li>
+<li>当一行的空间不够浮动元素存放的时候会另起一排</li>
+<li>右浮动会颠倒盒子顺序</li>
+<li>浮动元素会脱离文档流，会压住下一个块元素，但不会压住其内容</li>
+</ul>
+<ol start="3">
+<li>清除浮动</li>
+</ol>
+<p>原因：给子元素添加浮动属性之后，子元素会脱离文档流，使其父元素造成高度塌陷</p>
+<p>解决办法：</p>
+<ul>
+<li>定高法：给父元素添加一个高度</li>
+<li>给父元素添加一个overflow：hidden</li>
+<li>额外标签法（一般不用）：给浮动元素的父元素后面添加一个空标签，为其添加属性：clear：both（只添加给块元素）</li>
+<li>伪元素添加法：（最好的一种方法，经常使用）</li>
+</ul>
+<p>添加的伪元素是一个行内元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="comment">/* 伪元素必须的属性 */</span></span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&quot;.&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>:block;<span class="comment">/*变成块元素*/</span></span><br><span class="line">    <span class="attribute">clear</span>:both;<span class="comment">/*清除元素两端的浮动*/</span></span><br><span class="line">    <span class="attribute">height</span>：<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">visibility</span>：hidden;<span class="comment">/*元素在页面占位不可见*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="visibility-hidden和display：none的区别"><a href="#visibility-hidden和display：none的区别" class="headerlink" title="visibility:hidden和display：none的区别"></a>visibility:hidden和display：none的区别</h3><p>相同点：都是让元素不可见</p>
+<p>不同点:visibility:hidden让元素占位不可见；display：none是让元素不占位消失</p>
+<h3 id="元素不可见"><a href="#元素不可见" class="headerlink" title="元素不可见"></a>元素不可见</h3><ol>
+<li>visibility:hidden</li>
+<li>display：none</li>
+<li>height:0</li>
+<li>透明度为0</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/06-%E6%B5%AE%E5%8A%A8/" data-id="clewlnx0m0005gu004p5j41zi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-05-背景" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/05-%E8%83%8C%E6%99%AF/" class="article-date">
+  <time datetime="2023-03-06T09:00:12.621Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+<li>background-color背景颜色，颜色三种取值</li>
+<li>background-image:设置背景图片<br>url()引入背景图片的路径</li>
+<li>background-repeat设置背景图片的平铺方式<br>repeat:平铺(默认属性)，水平和垂直方向都平铺<br>no-repeat：不平铺<br>repeat-x：在水平方向上平铺<br>repeat-y：在垂直方向上平铺</li>
+<li>background-position:设置背景图片的位置<br>两个取值：（背景图片默认位置在图片的左上角也就是0,0）<br>第一个：代表水平方向上的位置<br>第二个：代表垂直方向上的位置</li>
+</ol>
+<p>固定值：正值是右下方向，负值是左上方向<br>关键字：<br>水平：left center right<br>垂直：top  center  bottom<br>5. background-attachment:用来设置背景相对于窗口的的固定定位<br>fixed设置这个属性使背景图片相对于浏览器窗口进行定位，此时添加<code>background-attachment: fixed;</code>的元素相当于一个视口，只有当这个元素到达设置背景图片的位置的时候才能看到图片</p>
+<ol start="6">
+<li>background：background-color background-image background-repeat background-position background-attachment</li>
+</ol>
+<h2 id="精灵图"><a href="#精灵图" class="headerlink" title="精灵图"></a>精灵图</h2><ol>
+<li>打开ps建立一个画布（ctrl+n），新建之后，需要定义画布的大小，单位需要改为px，定义画布的宽高，背景一定要选择透明，然后点击确定</li>
+<li>截取想要的精灵图（复制psd文件里面的图层）放在我们建立的画布中，图与图之间要有一定的间距，这个间距不能太小，也不能太大，最后保存图片为png格式放在项目文件夹下</li>
+<li>在需要使用精灵图的位置建立一个专门存放精灵图标的一个空间，通过<code>background-image</code>引入精灵图，然后通过<code>background-position</code>定位想要的精灵图的位置即可</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/05-%E8%83%8C%E6%99%AF/" data-id="clewlnx0k0004gu00cizn92z6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-04-盒子模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time datetime="2023-03-06T08:59:36.361Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="宽高"><a href="#宽高" class="headerlink" title="宽高"></a>宽高</h2><ol>
+<li>width:设置元素的宽度（块元素和行内块元素）</li>
+</ol>
+<p>px：固定单位</p>
+<p>百分比：是占父元素的百分比<br>2. height：设置元素的高度（块元素和行内块元素）</p>
+<p>px：固定单位</p>
+<p>auto：不设置高度的情况下高度是内容撑起来的</p>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><ol>
+<li>border：border-width  border-style  border-color属性含有三个值，每个值使用空格隔开,表示四条边的边框</li>
+</ol>
+<p>border-width：边框的宽  px</p>
+<p>border-style：边框的样式</p>
+<p>solid实线 dotted点状线 dashed虚线  double双实线（想要设置双实线必须边框的宽度大于3px）</p>
+<p>border-color：边框的颜色</p>
+<ol start="2">
+<li>拆分属性</li>
+</ol>
+<p>1）方向拆分</p>
+<p>border-top:上边框，同样含有三个值（border-width  border-style  border-color）</p>
+<p>border-left:左边框</p>
+<p>border-right：右边框</p>
+<p>border-bottom：下边框</p>
+<p>2）三个属性值拆分（只有一个属性值）</p>
+<p>border-width：边框的宽  px</p>
+<p>border-style：边框的样式</p>
+<p>solid实线 dotted点状线 dashed虚线  double双实线（想要设置双实线必须边框的宽度大于3px）</p>
+<p>border-color：边框的颜色</p>
+<ol start="3">
+<li>border属性制作三角形：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">100px</span> solid transparent;</span><br><span class="line">    <span class="attribute">border-top-color</span>:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h2><ol>
+<li>设置盒子的内补白</li>
+</ol>
+<p>一个值：四个方向都有填充</p>
+<p>两个值：上下  左右</p>
+<p>三个值：上  左右  下</p>
+<p>四个值：上 右 下 左<br>2. 特点</p>
+<ul>
+<li>如果盒子有宽度和高度，再加padding值，则盒子一定会变大</li>
+<li>如果盒子没有设置宽度，且默认宽度等于是父亲的宽度，则这个盒子，加padding并不影响盒子的宽度,只影响高度。</li>
+<li>行内元素不支持上下的padding（能撑开高度但是不占位置)</li>
+</ul>
+<ol start="3">
+<li>拆分</li>
+</ol>
+<p>方向：</p>
+<p>padding-top:上填充</p>
+<p>padding-right:右填充</p>
+<p>padding-bottom：下填充</p>
+<p>padding-left：左填充</p>
+<h2 id="margin"><a href="#margin" class="headerlink" title="margin"></a>margin</h2><ol>
+<li>设置盒子的外边距</li>
+</ol>
+<p>一个值：四个方向</p>
+<p>两个值：上下  左右</p>
+<p>三个值：上  左右  下</p>
+<p>四个值：上 右 下 左<br>2. 特点</p>
+<ul>
+<li>行内元素不支持上下的margin</li>
+</ul>
+<ol start="3">
+<li>拆分</li>
+</ol>
+<p>方向：</p>
+<p>margin-top:上填充</p>
+<p>margin-right:右填充</p>
+<p>margin-bottom：下填充</p>
+<p>margin-left：左填充</p>
+<h3 id="版心"><a href="#版心" class="headerlink" title="版心"></a>版心</h3><p>安全宽度：指的是大部分用户的屏幕可以看到的区域，没有规范的值，取决于我们应该去适配多少用户的电脑，不同的网站选择的安全也不是一样的，具体用多少看设计师的</p>
+<p>版心核心代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrap</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:版心宽度;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="margin-1"><a href="#margin-1" class="headerlink" title="margin"></a>margin</h3><ol>
+<li>重叠问题</li>
+</ol>
+<p>当两个相邻的块元素同时拥有一个相反的margin值时（上面的元素有一个margin-bottom值，下面的元素有一个margin-top值），两个margin值会产生重叠，会取其中最大的margin值，这叫margin的重叠问题</p>
+<p>解决方法：尽量给块元素设置同一方向的margin值</p>
+<ol start="2">
+<li>穿透问题</li>
+</ol>
+<p>在普通流中，当给子元素设置一个margin-top值时，福元素会随着子元素一块移动，这就叫margin的穿透问题</p>
+<p>解决办法：</p>
+<ul>
+<li>给父元素添加一个边框</li>
+<li>给父元素添加一个属性overflow:hidden</li>
+<li>给父元素添加一个上内边距padding-top值，然后使父元素的高减去padding-top的值（一般推荐使用这种方法）</li>
+</ul>
+<p>overflow:解决文本溢出</p>
+<p>hidden：溢出的部分截断隐藏</p>
+<p>scroll：不管文本有没有溢出都会在右边和下面产生一个滚动条</p>
+<p>auto：只有在某个方向上溢出的时候才会在哪个方向产生一个滚动条</p>
+<h2 id="标准盒模型和IE盒模型"><a href="#标准盒模型和IE盒模型" class="headerlink" title="标准盒模型和IE盒模型"></a>标准盒模型和IE盒模型</h2><p>标准盒模型：</p>
+<p>实际的宽：设置的<code>width+左边的padding值+右边的padding值+左边的border值+右边的border值</code></p>
+<p>实际的高：设置的<code>height+上面的padding值+下面的padding值+上面的border值+下面的border值</code></p>
+<p>可用的内容区域：设置的width和height区域</p>
+<p>IE盒模型：</p>
+<p>实际的宽：设置的宽度width</p>
+<p>实际的高度：设置的高度height</p>
+<p>可用的内容区域：设置的宽高-padding_2-border_2</p>
+<p>box-sizing：</p>
+<p>content-box：标准盒模型</p>
+<p>border-box：ie盒模型</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" data-id="clewlnx0k0003gu002jr11hsp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-03-元素的分类" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/03-%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%86%E7%B1%BB/" class="article-date">
+  <time datetime="2023-03-06T08:59:24.934Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="块元素"><a href="#块元素" class="headerlink" title="块元素"></a>块元素</h2><p>代表元素：h1-h6,p,div,ul,li, ol ,li,dl ,dt,dd…..</p>
+<p>特点：</p>
+<ol>
+<li>独占一行</li>
+<li>没有设置按宽度的情况下默认为父元素宽度的百分之百</li>
+<li>可以设置宽高</li>
+</ol>
+<p>默认属性:display:block</p>
+<h2 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h2><p>代表元素:span,格式化,a</p>
+<p>特点：</p>
+<ol>
+<li>一行多个</li>
+<li>不能设置宽高</li>
+<li>宽度默认为内容的宽度</li>
+</ol>
+<p>默认属性：display:inline</p>
+<h2 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h2><p>代表元素:img,input,td</p>
+<p>特点：</p>
+<ol>
+<li>一行多个</li>
+<li>可以设置宽高</li>
+<li>宽度为元素本身的大小</li>
+</ol>
+<p>默认属性：display:inline-block</p>
+<p><em>display:none使元素隐藏，一般与display：block来控制元素的显示和隐藏</em></p>
+<h2 id="三类元素的转换："><a href="#三类元素的转换：" class="headerlink" title="三类元素的转换："></a>三类元素的转换：</h2><ol>
+<li>转换成块元素:display:block</li>
+<li>转换成行内元素:display:inline</li>
+<li>转化成行内块元素:display:inline-block</li>
+</ol>
+<h2 id="display-inline-block问题"><a href="#display-inline-block问题" class="headerlink" title="display:inline-block问题"></a>display:inline-block问题</h2><ul>
+<li>会产生行内块元素之间会有一个大约4px的一个距离</li>
+</ul>
+<p>产生原因：换行符导致的</p>
+<p>解决办法：</p>
+<ol>
+<li>删除换行符或者注释换行符</li>
+<li>给父元素设置font-size：0，然后给本身一个不为0的字体大小</li>
+</ol>
+<ul>
+<li>在ie8以下不兼容</li>
+</ul>
+<p>需要添加以下两行代码：</p>
+<p>*display:inline</p>
+<p>*zoom:1</p>
+<h2 id="三类元素的嵌套"><a href="#三类元素的嵌套" class="headerlink" title="三类元素的嵌套"></a>三类元素的嵌套</h2><ol>
+<li>块元素可以嵌套块元素，行内元素和行内块元素，比如div</li>
+<li>某些块元素只能嵌套行内元素，而不能嵌套块元素，这些元素包含p和h1-h6</li>
+<li>行内元素不能嵌套块元素，只能嵌套其他的行内元素</li>
+<li>a标签是万能的，可以嵌套任何元素(使用时将a标签转换成块元素)，意思是只要是a标签里面的内容都是可以点击跳转的</li>
+<li>尽量书写页面结构的时候，使同类元素同级</li>
+</ol>
+<h2 id="三类元素的水平居中"><a href="#三类元素的水平居中" class="headerlink" title="三类元素的水平居中"></a>三类元素的水平居中</h2><ol>
+<li>块元素水平居中：</li>
+</ol>
+<p>设置属性  margin:0 auto(这个块元素必须有宽)<br>2. 行内元素和行内块元素进行居中</p>
+<p>使其用块元素进行包裹，然后给块元素一个text-align:center</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/03-%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%86%E7%B1%BB/" data-id="clewlnx0k0002gu00bezod2s2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-02-前端技术" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/02-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" class="article-date">
+  <time datetime="2023-03-06T08:23:25.923Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HTML是网页内容的载体。"><a href="#HTML是网页内容的载体。" class="headerlink" title="HTML是网页内容的载体。"></a>HTML是网页内容的载体。</h2><p>内容就是网页制作者放在页面上想要让用户浏览的信息，可以包含文字、图片、视频等。</p>
+<h2 id="CSS样式是表现。"><a href="#CSS样式是表现。" class="headerlink" title="CSS样式是表现。"></a>CSS样式是表现。</h2><p>就像网页的外衣。比如，标题字体、颜色变化，或为标题加入背景图片、边框等。所有这些用来改变内容外观的东西称之为表现。</p>
+<h2 id="JavaScript是用来实现网页上的特效效果。"><a href="#JavaScript是用来实现网页上的特效效果。" class="headerlink" title="JavaScript是用来实现网页上的特效效果。"></a>JavaScript是用来实现网页上的特效效果。</h2><p>如：鼠标滑过弹出下拉菜单。或鼠标滑过表格的背景颜色改变。还有焦点新闻（新闻图片）的轮换。可以这么理解，有动画的，有交互的一般都是用JavaScript来实现的。</p>
+<p>把内容在页面上显示出来html</p>
+<p>把内容很好看的显示出来css</p>
+<p>把内容与用户进行一定的交互js</p>
+<h2 id="开发环境"><a href="#开发环境" class="headerlink" title="开发环境"></a>开发环境</h2><ul>
+<li>vscode</li>
+<li>sublime</li>
+<li>dreamweaver</li>
+<li>eclips</li>
+<li>HbuilderX</li>
+<li>记事本</li>
+<li>webstore</li>
+</ul>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ul>
+<li>chrome</li>
+<li>IE</li>
+<li>firefix</li>
+<li>opera</li>
+<li>safari</li>
+</ul>
+<p>搜狗，360,QQ，uc，猎豹</p>
+<h2 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h2><blockquote>
+<p>在页面中输出英文状态下的叹号，回车即可生成页面结构</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/02-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" data-id="clewlnx0j0001gu00e2s7f565" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-01-css入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/01-css%E5%85%A5%E9%97%A8/" class="article-date">
+  <time datetime="2023-03-06T07:58:50.440Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="认识"><a href="#认识" class="headerlink" title="认识"></a>认识</h2><blockquote>
+<p>主要是用于定义HTML内容在浏览器内的显示样式，如文字大小、颜色、字体加粗等</p>
+</blockquote>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">选择器&#123;</span><br><span class="line">    属性：属性值;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 属性与属性值之间使用冒号隔开，大多数属性值不加引号，以分好进行结尾，属性设置的就是样式，多个属性值之间使用分号隔开,里面的符号必须是英文符号，中文不会有效果 */</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>选择器就是要作用的对象（html里面的标签）</p>
+</blockquote>
+<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ol>
+<li>最好每行只描述一个属性，以分号进行结尾</li>
+<li>css代码不区分大小写，但是尽量用小写</li>
+<li>属性值和属性名前后加空格不影响执行</li>
+</ol>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h3><ol>
+<li>表示：*</li>
+<li>作用对象：所有的标签</li>
+<li>用途：一般用来清除标签的默认样式</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h3><ol>
+<li>表示：标签名</li>
+<li>作用对象：具有相同名字的标签</li>
+</ol>
+<h3 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h3><ol>
+<li>表示：.class的属性值</li>
+<li>作用对象：选中页面中所有的具有相同类名的元素，class就是给标签定义名字</li>
+<li>相当于我们的名字</li>
+<li>命名规范</li>
+</ol>
+<ul>
+<li><p>不能以数字开头</p>
+</li>
+<li><p>命名要有含义，不要以标签名来命名</p>
+</li>
+<li><p>命名方法</p>
+<ul>
+<li>驼峰命名法：通过多个英文单词组成，第一个英文单词首字母小写，之后的单词首字母大写</li>
+<li>划线命名法：通过多个英文单词组成，每个单词之间使用-或者_连接</li>
+</ul>
+</li>
+</ul>
+<h3 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h3><ol>
+<li>表示：#id的属性值</li>
+<li>作用元素：选中页面中具有某个id属性的标签</li>
+<li>相当于我们的身份证id</li>
+<li>id具有唯一性</li>
+</ol>
+<ul>
+<li>页面中不同的标签都有一个id属性，属性值不能重复</li>
+<li>一个id属性只有一个id值</li>
+</ul>
+<ol start="5">
+<li>因为id具有页面中的唯一性，一般用于跟js相结合</li>
+</ol>
+<p>id选择器和类选择器的区别：</p>
+<p>相同点：都是给标签定义名字</p>
+<p>不同点：(1)两者表示方法不同：id选择器使用#作为标志，而类选择器使用.作为标志</p>
+<p>(2)页面中所有标签有且仅有一个id值，而且不能重复，页面中所有的标签都可以拥有多个class属性值，每个属性值之间使用空格隔开，而且不同的标签可以公用一个class名，也就是class属性值相同</p>
+<h3 id="子代选择器"><a href="#子代选择器" class="headerlink" title="子代选择器"></a>子代选择器</h3><ol>
+<li>表示：使用&gt;  父选择器&gt;子选择器（直接子代）</li>
+<li>选中父元素下的第一子代</li>
+</ol>
+<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><ol>
+<li>表示：使用空格  祖先选择器 子选择器（包含所有的后代）</li>
+<li>选中祖先元素下的所有后代</li>
+</ol>
+<h3 id="群组选择器"><a href="#群组选择器" class="headerlink" title="群组选择器"></a>群组选择器</h3><ol>
+<li>表示：,    选择器,选择器,选择器{样式}</li>
+<li></li>
+<li>当不同的选择器拥有一样的样式的时候使用群组选择器</li>
+</ol>
+<h3 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h3><blockquote>
+<p>是对页面中已经存在的元素添加的一种状态</p>
+</blockquote>
+<ol>
+<li>:link未被访问时的状态，只用于超链接</li>
+<li>:visited访问过的状态，只用于超链接</li>
+<li>:hover鼠标浮上去的时候的状态,可以用于所有的元素</li>
+</ol>
+<ul>
+<li>浮上本身作用于本身</li>
+<li>浮上本身作用于其他标签</li>
+</ul>
+<ol start="4">
+<li>:active被激活时候的状态，只用于超链接</li>
+<li>:focus聚焦时候的状态</li>
+</ol>
+<h3 id="伪元素选择器"><a href="#伪元素选择器" class="headerlink" title="伪元素选择器"></a>伪元素选择器</h3><blockquote>
+<p>是往页面中添加元素但是这个元素不在dom中</p>
+</blockquote>
+<ol>
+<li>:after在元素内部的后面添加内容</li>
+<li>:before在元素内部的前面添加内容</li>
+</ol>
+<p><em>使用伪元素选择器必须添加一个content属性</em></p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>层叠性：当同一样式作用于同一个标签，就会产生冲突，产生冲突就会产生层叠（覆盖），当选择器的权重相同时，谁在后谁生效，当选择器的权重不同时，谁的权重大谁生效</li>
+<li>继承性：当子元素没有设置样式时会继承父元素的某些样式，可以继承的属性包含文字和文本属性</li>
+</ol>
+<p>font-   text-    color   line-height</p>
+<p><em>a标签不会通过继承的方式改变本身的样式，想要改变样式必须给本身添加样式</em><br>3. 优先级（权重）</p>
+<p>!important</p>
+<p>行内样式  1000</p>
+<p>id选择器        100</p>
+<p>类,伪类，属性选择器     10</p>
+<p>标签选择器      1</p>
+<p>继承</p>
+<p>_通配选择器（_），子选择器（&gt;)不在这四个等级中，它们权值都为0</p>
+<ul>
+<li></li>
+</ul>
+<h2 id="css引入方式"><a href="#css引入方式" class="headerlink" title="css引入方式"></a>css引入方式</h2><ol>
+<li>行内式（内联式）</li>
+</ol>
+<p>只需要在添加样式的标签中添加style属性，属性值书写方式跟内联式的属性书写方式一致<br>2. 内嵌式</p>
+<p>在head标签里面填入style标签，里面填写选择器{样式}<br>3. 外联式</p>
+<ul>
+<li>需要在文件外面的css文件夹单独建立一个css为后缀名的文件，在css文件中只需要填入选择器{样式}</li>
+<li>在要引用css的html文件的head标签里面通过link标签来引入相对应的css文件</li>
+</ul>
+<p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;引入css文件的路径&quot;&gt;</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/01-css%E5%85%A5%E9%97%A8/" data-id="clewlnx0f0000gu00d0fcb9cr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+      最新文章
+    </h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/06/06-%E6%B5%AE%E5%8A%A8/">
+              06-浮动
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/05-%E8%83%8C%E6%99%AF/">
+              05-背景
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+              04-盒子模型
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/03-%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%86%E7%B1%BB/">
+              03-元素的分类
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/02-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">
+              02-前端技术
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 李冰辉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

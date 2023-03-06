@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>阿辉博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="浮动 属性  float：left左浮动 float：right右浮动 同级元素一个浮动，其他都要浮动，所有的标签都可添加浮动属性  特点：   浮动元素会排成一排 没有设置宽度的块元素添加浮动之后会自动伸缩为内容的宽度 浮动元素会找紧挨着他的浮动元素贴边 行内元素添加浮动属性之后可以设置宽高 当一行的空间不够浮动元素存放的时候会另起一排 右浮动会颠倒盒子顺序 浮动元素会脱离文档流，会压住下一个块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿辉博客">
+<meta property="og:url" content="http://example.com/2023/03/06/06-%E6%B5%AE%E5%8A%A8/index.html">
+<meta property="og:site_name" content="阿辉博客">
+<meta property="og:description" content="浮动 属性  float：left左浮动 float：right右浮动 同级元素一个浮动，其他都要浮动，所有的标签都可添加浮动属性  特点：   浮动元素会排成一排 没有设置宽度的块元素添加浮动之后会自动伸缩为内容的宽度 浮动元素会找紧挨着他的浮动元素贴边 行内元素添加浮动属性之后可以设置宽高 当一行的空间不够浮动元素存放的时候会另起一排 右浮动会颠倒盒子顺序 浮动元素会脱离文档流，会压住下一个块">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-06T09:00:23.884Z">
+<meta property="article:modified_time" content="2023-03-06T09:00:23.884Z">
+<meta property="article:author" content="李冰辉">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="阿辉博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">阿辉博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-06-浮动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/03/06/06-%E6%B5%AE%E5%8A%A8/" class="article-date">
+  <time datetime="2023-03-06T09:00:23.884Z" itemprop="datePublished">2023-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><ol>
+<li>属性</li>
+</ol>
+<p>float：left左浮动</p>
+<p>float：right右浮动</p>
+<p><em>同级元素一个浮动，其他都要浮动，所有的标签都可添加浮动属性</em></p>
+<ol start="2">
+<li>特点：</li>
+</ol>
+<ul>
+<li>浮动元素会排成一排</li>
+<li>没有设置宽度的块元素添加浮动之后会自动伸缩为内容的宽度</li>
+<li>浮动元素会找紧挨着他的浮动元素贴边</li>
+<li>行内元素添加浮动属性之后可以设置宽高</li>
+<li>当一行的空间不够浮动元素存放的时候会另起一排</li>
+<li>右浮动会颠倒盒子顺序</li>
+<li>浮动元素会脱离文档流，会压住下一个块元素，但不会压住其内容</li>
+</ul>
+<ol start="3">
+<li>清除浮动</li>
+</ol>
+<p>原因：给子元素添加浮动属性之后，子元素会脱离文档流，使其父元素造成高度塌陷</p>
+<p>解决办法：</p>
+<ul>
+<li>定高法：给父元素添加一个高度</li>
+<li>给父元素添加一个overflow：hidden</li>
+<li>额外标签法（一般不用）：给浮动元素的父元素后面添加一个空标签，为其添加属性：clear：both（只添加给块元素）</li>
+<li>伪元素添加法：（最好的一种方法，经常使用）</li>
+</ul>
+<p>添加的伪元素是一个行内元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">    <span class="comment">/* 伪元素必须的属性 */</span></span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&quot;.&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>:block;<span class="comment">/*变成块元素*/</span></span><br><span class="line">    <span class="attribute">clear</span>:both;<span class="comment">/*清除元素两端的浮动*/</span></span><br><span class="line">    <span class="attribute">height</span>：<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">visibility</span>：hidden;<span class="comment">/*元素在页面占位不可见*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="visibility-hidden和display：none的区别"><a href="#visibility-hidden和display：none的区别" class="headerlink" title="visibility:hidden和display：none的区别"></a>visibility:hidden和display：none的区别</h3><p>相同点：都是让元素不可见</p>
+<p>不同点:visibility:hidden让元素占位不可见；display：none是让元素不占位消失</p>
+<h3 id="元素不可见"><a href="#元素不可见" class="headerlink" title="元素不可见"></a>元素不可见</h3><ol>
+<li>visibility:hidden</li>
+<li>display：none</li>
+<li>height:0</li>
+<li>透明度为0</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/06/06-%E6%B5%AE%E5%8A%A8/" data-id="clewlnx0m0005gu004p5j41zi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/06/05-%E8%83%8C%E6%99%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">三月 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">
+      最新文章
+    </h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/06/06-%E6%B5%AE%E5%8A%A8/">
+              06-浮动
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/05-%E8%83%8C%E6%99%AF/">
+              05-背景
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/04-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+              04-盒子模型
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/03-%E5%85%83%E7%B4%A0%E7%9A%84%E5%88%86%E7%B1%BB/">
+              03-元素的分类
+            </a>
+          </li>
+          
+          <li>
+            <a href="/2023/03/06/02-%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/">
+              02-前端技术
+            </a>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2023 李冰辉<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
